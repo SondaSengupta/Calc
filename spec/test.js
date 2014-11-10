@@ -201,6 +201,7 @@
         assert.equal(displayOutput(), '1');
       });
     });
+
     describe('1 - 3 =', function(){
       it('should be -2', function(){
         press(1);
@@ -210,5 +211,28 @@
         assert.equal(displayOutput(), '-2');
       });
     });
+
+      describe('5 * 4 =', function(){
+      it('should be 20', function(){
+        press(5);
+        press('*');
+        press(4);
+        press('=');
+        assert.equal(displayOutput(), '20');
+      });
+    });
+
+        describe('20/5 =', function(){
+      it('should be 4', function(){
+        press(2);
+        press(0);
+        press('/');
+        press(5);
+        press('=');
+        assert.equal(displayOutput(), '4');
+      });
+    });
+
+
   });
 })();
