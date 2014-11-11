@@ -1,3 +1,14 @@
+// CLICK EVENTS / USER INPUT
+$('td').click(function(){
+    var buttonValue = $(this).text();
+    console.log(buttonValue);
+    $('#displayoutput').append(buttonValue);
+    press(buttonValue);
+});
+
+
+// ACTUAL CALCULATIONS
+
 function displayOutput(){
   return $('#displayoutput').val();
 }
@@ -28,7 +39,6 @@ function currentValue(string){
 function calculate(){
   if(!!nextOperation){ //if nextOperation is there, then do this function. Made nextOperation a boolean value and stated if it was false, false (or true)
   previousResult = nextOperation(previousResult, currentValue());
-
   } else {
     previousResult = currentValue();
   }
@@ -61,6 +71,9 @@ function press(buttonValue){
       break;
     case 'C':
       // handle C
+        nextOperation = undefined;
+        previousResult = undefined;
+        $('#displayoutput').val('');
       break;
     case '=':
       calculate();
@@ -69,9 +82,11 @@ function press(buttonValue){
       break;
     case '+/-':
       // handle +/-
+        $('#displayoutput').val("LOW BATTERY");
       break;
     default:
       var current = $('#displayoutput').val();
       $('#displayoutput').val(current + buttonValue);
+          
   }
 }
