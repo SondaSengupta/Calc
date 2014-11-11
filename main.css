@@ -1,6 +1,6 @@
 @font-face {
     font-family: DigitalFont;
-    src: url(digital-7.ttf)
+    src: url(digital-7.ttf);
 }
 
 #wrapper {
@@ -19,6 +19,7 @@
     text-align: right;
     vertical-align: bottom;
     font-family: DigitalFont;
+    border: none;
 }
 
 input#displayoutput {
