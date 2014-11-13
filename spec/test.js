@@ -47,7 +47,57 @@
     });
   });
 
-  describe('Mixed Operators', function(){
+  describe('Mixed and Multiple Operators', function(){
+    describe('7 . 8 9 + 1 + 2 =', function(){
+      it('should be 10.89', function () {
+        type(7, '.', 8, 9, '+', 1, '+', 2, '=');
+        assert.equal(displayOutput(), '10.89');
+      });
+    });
+    describe('7 . 8 9 + 1 = + 2 =', function(){
+      it('should be 10.89', function () {
+        type(7, '.', 8, 9, '+', 1, '=', '+', 2, '=');
+        assert.equal(displayOutput(), '10.89');
+      });
+    });
+    describe('7 . 8 9 + 4 + 2 =', function(){
+      it('should be 13.89', function () {
+        type(7, '.', 8, 9, '+', 4, '+', 2, '=');
+        assert.equal(displayOutput(), '13.89');
+      });
+    });
+    describe('7 . 8 9 + 1 . 0 5 + 2 =', function(){
+      it('should be 10.94', function () {
+        type(7, '.', 8, 9, '+', 1, '.', 0, 5, '+', 2, '=');
+        assert.equal(displayOutput(), '10.94');
+      });
+    });
+    describe('7 . 8 9 + 1 . 0 0 + 2 =', function(){
+      it('should be 10.89', function () {
+        type(7);
+        type('.');
+        type(8);
+        type('9');
+        type('+');
+        type(1);
+        type('.');
+        type(0);
+        type(0);
+        type('+');
+        type(2);
+        type('=');
+        assert.equal(displayOutput(), '10.89');
+      });
+    });
+    describe('1 + 1 =', function(){
+      it('should be 2', function () {
+        type(1);
+        type('+');
+        type(1);
+        type('=');
+        assert.equal(displayOutput(), '2');
+      });
+    });
     describe('20 / 10 + 3 =', function(){
       it('should be 5', function(){
         type(2, 0, '/', 1, 0, '+', 3, '=');
@@ -55,12 +105,30 @@
       });
     });
 
-      describe('20 / 10 + 3 =', function(){
-      it('should be 5', function(){
-        type(2, 0, '/', 1, 0, '+', 3, '=');
-        assert.equal(displayOutput(), '5');
+      describe('20 * 10 + 3 =', function(){
+      it('should be 203', function(){
+        type(2, 0, '*', 1, 0, '+', 3, '=');
+        assert.equal(displayOutput(), '203');
       });
     });
+      describe('20 + 10 - 3 =', function(){
+      it('should be 27', function(){
+        type(2, 0, '+', 1, 0, '-', 3, '=');
+        assert.equal(displayOutput(), '27');
+      });
+    });
+    describe('20.0 + 10.0 - 3.0 =', function(){
+    it('should be 27.0', function(){
+      type(2, 0,'.', 0, '+', 1, 0,'.', '0', '-', 3, '.', 0, '=');
+      assert.equal(displayOutput(), '27.0');
+    });
+  });
+    describe('20 + 10 + 3 =', function(){
+    it('should be 33', function(){
+      type(2, 0, '+', 1, 0, '-', 3, '=');
+      assert.equal(displayOutput(), '33');
+    });
+  });
   });
 
   describe('Dividing', function(){
