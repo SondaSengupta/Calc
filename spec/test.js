@@ -81,7 +81,7 @@
     describe('0.3 / 0.1 =', function(){
       it('should be 3', function(){
         type(0, '.', 3, '/', 0, '.', 1, '=');
-        assert.equal(displayOutput(), '3');
+        assert.equal(displayOutput(), '3.0');
       });
     });
 
@@ -244,7 +244,7 @@
         type('.');
         type(1);
         type('=');
-        assert.equal(displayOutput(), '1');
+        assert.equal(displayOutput(), '1.0');
       });
     });
     describe('1 - 3 =', function(){

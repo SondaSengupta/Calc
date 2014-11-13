@@ -17,20 +17,39 @@ var previousResult;
 var nextOperation;
 
 function add(a, b){
-  return ((a * 100000000000000) + (b * 100000000000000))/100000000000000
-}
+  mantissaofA = a.toString().match(/[^.]*\.?(\d*)/)[1].length;
+  mantissaofB = b.toString().match(/[^.]*\.?(\d*)/)[1].length;
+  var digits = Math.max(mantissaofA, mantissaofB);
+  var sum = a + b
+  return sum.toFixed(digits);
+};
 
 function subtraction(a, b){
-  return ((a * 100000000000000) - (b * 100000000000000))/100000000000000
-}
+mantissaofA = a.toString().match(/[^.]*\.?(\d*)/)[1].length;
+mantissaofB = b.toString().match(/[^.]*\.?(\d*)/)[1].length;
+var digits = Math.max(mantissaofA, mantissaofB);
+var difference = a - b
+return difference.toFixed(digits);
+};
 
 function multiply(a, b){
   return a * b;
-}
+};
 
 function divide(a, b){
-  return (a)/(b);
-}
+  var periodA = a.toString().indexOf(".");
+  var periodB = b.toString().indexOf(".");
+  if (periodA !== -1 || periodB !== -1){
+    mantissaofA = a.toString().match(/[^.]*\.?(\d*)/)[1].length;
+    mantissaofB = b.toString().match(/[^.]*\.?(\d*)/)[1].length;
+    var digits = Math.max(mantissaofA, mantissaofB);
+    var quotient = a / b;
+    return quotient.toFixed(digits);
+  } else {
+    var quotient = a / b;
+    return quotient;
+  }
+};
 
 function currentValue(string){
   return $('#displayoutput').val() * 1;
@@ -87,6 +106,6 @@ function press(buttonValue){
     default:
       var current = $('#displayoutput').val();
       $('#displayoutput').val(current + buttonValue);
-          
+
   }
 }
