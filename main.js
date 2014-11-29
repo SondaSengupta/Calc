@@ -20,7 +20,7 @@ function add(a, b){
   mantissaofA = a.toString().match(/[^.]*\.?(\d*)/)[1].length;
   mantissaofB = b.toString().match(/[^.]*\.?(\d*)/)[1].length;
   var digits = Math.max(mantissaofA, mantissaofB);
-  var sum = a + b
+  var sum = a + b;
   return sum.toFixed(digits);
 };
 
@@ -28,7 +28,7 @@ function subtraction(a, b){
 mantissaofA = a.toString().match(/[^.]*\.?(\d*)/)[1].length;
 mantissaofB = b.toString().match(/[^.]*\.?(\d*)/)[1].length;
 var digits = Math.max(mantissaofA, mantissaofB);
-var difference = a - b
+var difference = a - b;
 return difference.toFixed(digits);
 };
 
